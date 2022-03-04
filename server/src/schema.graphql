@@ -1,0 +1,44 @@
+input MessageInput {
+  content: String
+  author: String
+}
+
+type Message {
+  id: ID!
+  content: String
+  author: String
+}
+
+type Query {
+  getMessage(id: ID!): Message
+  getDogOwner(id: ID!): Owner
+  hello: String
+}
+
+type Mutation {
+  createMessage(input: MessageInput): Message
+  updateMessage(id: ID!, input: MessageInput): Message
+  adoptDog: Owner
+}
+
+type Owner {
+  owner: User
+}
+
+type Toy {
+  id: ID!
+  type: String!
+}
+
+type Dog {
+  id: ID!
+  name: ID!
+  breed: String!
+  toy: Toy!
+}
+
+type User {
+  id: ID!
+  name: String!
+  dog: Dog
+}
